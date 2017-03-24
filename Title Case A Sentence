@@ -1,0 +1,33 @@
+CHALLENGE
+**********
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+TEST CASES
+**********
+titleCase("I'm a little tea pot") should return a string.
+titleCase("I'm a little tea pot") should return "I'm A Little Tea Pot".
+titleCase("sHoRt AnD sToUt") should return "Short And Stout".
+titleCase("HERE IS MY HANDLE HERE IS MY SPOUT") should return "Here Is My Handle Here Is My Spout".
+
+SOLUTION #1 (Using for loop, CharAt,Slice/Substr)
+**********
+1. Convert the String to all lower case and split the string into an array and set it to a variable
+2. Loop/Iterate through the new string and locate the first letter of each word and make it capital
+3. Add this capitalization to the rest of the word and set it equal to the corresponding array index
+4. All words should now have their first letter capitalized but they are still separated. Return the newArray after joining it
+
+NOTES: NewArray[i].slice(1) and NewArray[i].substr(1,newArray[i].length) do the same thing
+
+function titleCase(str) {
+  var newArray = str.toLowerCase().split(" ");
+  for (var i=0; i < newArray.length; i++) {
+    newArray[i] = newArray[i].charAt(0).toUpperCase() + newArray[i].slice(1);
+     
+  }
+  return newArray.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+
