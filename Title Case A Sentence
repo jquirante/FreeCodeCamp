@@ -30,4 +30,35 @@ function titleCase(str) {
 
 titleCase("I'm a little tea pot");
 
+SOLUTION #2 (Using Map)
+************************
+1. Convert the string to all lower case and split it into an array of separate words
+2. Use map to take an input (Each word in the array) and capitalize the first letter
+3. Rejoin the strings and return the array
+
+function titleCase(str) {
+  var newArray = str.toLowerCase().split(" ");
+  newArray = newArray.map(function(word) {
+    return (word.charAt(0).toUpperCase() + word.slice(1));
+  });
+  return newArray.join(" ");
+}
+
+titleCase("I'm a little tea pot");
+
+SOLUTION #3 (Using Map and Replace)
+************************
+1. Convert the string to all lower case and split it into an array of separate words
+2. Use map to take an input (Each word in the array) and capitalize the first letter using replace
+3. Rejoin the strings and return the array
+
+function titleCase(str) {
+  var newArray = str.toLowerCase().split(" ");
+  newArray = newArray.map(function(word) {
+    return (word.replace(word[0], word[0].toUpperCase()));
+  });
+return newArray.join(" ");
+}
+
+titleCase("I'm a little tea pot");
 
