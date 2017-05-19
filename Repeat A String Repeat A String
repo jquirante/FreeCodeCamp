@@ -1,0 +1,41 @@
+CHALLENGE
+***********************
+Repeat a given string (first argument) num times (second argument). Return an empty string if num is not a positive number.
+
+TEST CASES
+*****************
+repeatStringNumTimes("*", 3) should return "***".
+repeatStringNumTimes("abc", 3) should return "abcabcabc".
+repeatStringNumTimes("abc", 4) should return "abcabcabcabc".
+repeatStringNumTimes("abc", 1) should return "abc".
+repeatStringNumTimes("*", 8) should return "********".
+repeatStringNumTimes("abc", -2) should return "".
+
+SOLUTION
+*****************
+1. Declare an empty Array
+2. Set the first index of the array equal to the str
+3. Declare a variable called status that will determine how many times we want to repeat the string
+4. Create a while loop to push the str X number of times given
+5. If the num provided is not positive, then return an empty string
+
+function repeatStringNumTimes(str, num) {
+  var newArray = [];
+  newArray[0] = str;
+  var status = num-1;
+  
+  if (num < 0) {
+    return '';
+  }
+  
+  while (status > 0) {
+    newArray.push(str);
+    status--;
+  }
+  
+  
+  return newArray.join('');
+  // repeat after me
+}
+
+repeatStringNumTimes("abc", 3);
