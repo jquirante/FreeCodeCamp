@@ -1,0 +1,39 @@
+CHALLENGE
+***********************
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+Note that inserting the three dots to the end will add to the string length. However, if the given maximum string length num is less than or equal to 3, then the addition of the three dots does not add to the string length in determining the truncated string.
+Remember to use Read-Search-Ask if you get stuck. Write your own code.
+
+TEST CASES
+*****************
+truncateString("A-tisket a-tasket A green and yellow basket", 11) should return "A-tisket...".
+truncateString("Peter Piper picked a peck of pickled peppers", 14) should return "Peter Piper...".
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length) should return "A-tisket a-tasket A green and yellow basket".
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2) should return "A-tisket a-tasket A green and yellow basket".
+truncateString("A-", 1) should return "A...".
+truncateString("Absolutely Longer", 2) should return "Ab...".
+
+SOLUTION
+******************
+1. Create a new array
+2. If the str.length is greater than the number but the number is less than three then we do not count the "..." as part of the length and return
+3. If the str.length is greater than the number and the number is also greater than three then we count the "..." as part of the length and return
+4. Else we return the string
+
+function truncateString(str, num) {
+  var newArray = []; 
+    
+    if (str.length > num && num <= 3) {
+      newArray[0]= str.slice(0,num);
+      return newArray[0] + "...";
+    } else if (str.length > num && num > 3) {
+      newArray[0]= str.slice(0,(num-3));
+      return newArray[0] + "...";
+    } else {
+      return str;
+    }
+  
+}
+
+
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length);
